@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
+
 config = require('./config')
 
 const app = express();

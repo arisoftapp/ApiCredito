@@ -1,4 +1,5 @@
 const user = require('../modelos/login');
+const jwt = require('jsonwebtoken');
 module.exports = function(app) {
 
     app.get('/usuarios', (req, res) => {
