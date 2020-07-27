@@ -10,8 +10,27 @@ app.set('llave', config.llave);
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+const rutasProtegidas = express.Router();
+rutasProtegidas.use((req, res, next) => {
+    const token = req.headers['access-token'];
 
-app.get('/prueba', (req, res) => {
+    if (token) {
+        jwt.verify(token, app.get('llave'), (err, decoded) => {
+            if (err) {
+                return res.json({ mensaje: 'Token inválida' });
+            } else {
+                req.decoded = decoded;
+                next();
+            }
+        });
+    } else {
+        res.send({
+            mensaje: 'Token no proveída.'
+        });
+    }
+});
+
+app.get('/prueba', rutasProtegidas, (req, res) => {
     res.send({ mensaje: "hola mundo" })
 })
 require('./rutas/login')(app);
