@@ -23,15 +23,10 @@ userModel.getValidarUsuario = (callback) => {
 userModel.auth = (usuario, callback) => {
     if (dbAdmin) {
         dbAdmin.query(`SELECT 
-            b.nombre_empresa AS 'empresa',
-            b.id_empresa as 'id_empresa',
-            b.dominio AS 'dominio',
-            a.username AS 'usuario',
-            a.password AS 'contra'
+        *
         FROM 
-            usuarios AS a
-
-        WHERE username='` + usuario + `' `, (err, rows) => {
+            usuarios
+        WHERE nom_usuario='` + usuario + `' `, (err, rows) => {
             if (err) {
                 throw err;
             } else {
