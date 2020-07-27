@@ -2,7 +2,7 @@ const model = require('../modelos/clientes');
 const jwt = require('jsonwebtoken');
 module.exports = function(app, rutasprotegidas) {
 
-    app.get('/insertarCliente', rutasprotegidas, (req, res) => {
+    app.post('/insertarCliente', rutasprotegidas, (req, res) => {
         var datos = {
             "nombre": req.body.nombre,
             "puesto": req.body.puesto,
