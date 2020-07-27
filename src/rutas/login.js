@@ -20,9 +20,9 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/login/:usuario/:contra', (req, res) => {
-        var usuario = req.params.usuario;
-        var contra = req.params.contra;
+    app.post('/login', (req, res) => {
+        var usuario = req.body.usuario;
+        var contra = req.body.contra;
         user.auth(usuario, (err, data) => {
             if (err) {
                 res.status(500).send({
@@ -43,9 +43,16 @@ module.exports = function(app) {
                             mensaje: "contraseña incorrecta"
                         });
                     } else {
+                        const payload = {
+                            check: true
+                        };
+                        const token = jwt.sign(payload, app.get('llave'), {
+                            expiresIn: 1440
+                        });
                         res.json({
                             success: true,
                             usuario: data,
+                            token: token
                         });
                     }
 
