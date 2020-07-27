@@ -1,8 +1,8 @@
 const user = require('../modelos/login');
 const jwt = require('jsonwebtoken');
-module.exports = function(app) {
+module.exports = function(app, rutasprotegidas) {
 
-    app.get('/usuarios', (req, res) => {
+    app.get('/usuarios', rutasprotegidas, (req, res) => {
         user.getValidarUsuario((err, data) => {
             if (err) {
                 res.status(500).send({
@@ -48,7 +48,7 @@ module.exports = function(app) {
                             check: true
                         };
                         const token = jwt.sign(payload, app.get('llave'), {
-                            expiresIn: 1440
+
                         });
                         res.json({
                             success: true,

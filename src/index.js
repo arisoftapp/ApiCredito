@@ -33,7 +33,7 @@ rutasProtegidas.use((req, res, next) => {
 app.get('/prueba', rutasProtegidas, (req, res) => {
     res.send({ mensaje: "hola mundo" })
 })
-require('./rutas/login')(app);
+require('./rutas/login')(app, rutasProtegidas);
 
 app.listen(port, () => {
     console.log("apirest " + port);
