@@ -34,7 +34,7 @@ app.get('/prueba', rutasProtegidas, (req, res) => {
     res.send({ mensaje: "hola mundo" })
 })
 require('./rutas/login')(app, rutasProtegidas);
-
+require('./rutas/clientes')(app, rutasProtegidas);
 app.listen(port, () => {
     console.log("apirest " + port);
 })
