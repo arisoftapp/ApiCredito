@@ -25,7 +25,7 @@ module.exports = function(app, rutasprotegidas) {
             }
         });
     });
-    app.GET('/clientes', rutasprotegidas, (req, res) => {
+    app.get('/clientes', rutasprotegidas, (req, res) => {
 
         model.getClientes(datos, (err, data) => {
             if (err) {
