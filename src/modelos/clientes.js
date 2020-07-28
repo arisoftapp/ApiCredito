@@ -27,7 +27,7 @@ userModel.getClientes = (callback) => {
             //throw err;
         } else {
 
-            console.log("1 record inserted " + result);
+            console.log("consulta " + result);
             callback(null, result);
         }
 
@@ -57,7 +57,7 @@ userModel.eliminartodoclientes = (cliente, callback) => {
             //throw err;
         } else {
 
-            console.log("1 record inserted " + result);
+            console.log("1 record delete " + result);
             callback(null, result);
         }
 
@@ -71,7 +71,7 @@ userModel.modificarcliente = (datos, callback) => {
             //throw err;
         } else {
 
-            console.log("1 record delete " + result);
+            console.log("1 record update " + result);
             callback(null, result);
         }
 
