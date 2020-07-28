@@ -35,4 +35,32 @@ userModel.getClientes = (callback) => {
 
 
 };
+userModel.eliminarCliente = (cliente, callback) => {
+    var sql = "DELETE FROM  clientes where cliente='" + cliente + "'";
+    con.query(sql, function(err, result) {
+        if (err) {
+            callback(err, null);
+            //throw err;
+        } else {
+
+            console.log("1 record delete " + result);
+            callback(null, result);
+        }
+
+    });
+}
+userModel.eliminartodoclientes = (cliente, callback) => {
+    var sql = "DELETE FROM  clientes where cliente='" + cliente + "'";
+    con.query(sql, function(err, result) {
+        if (err) {
+            callback(err, null);
+            //throw err;
+        } else {
+
+            console.log("1 record inserted " + result);
+            callback(null, result);
+        }
+
+    });
+}
 module.exports = userModel;

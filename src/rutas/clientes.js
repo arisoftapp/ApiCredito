@@ -44,4 +44,22 @@ module.exports = function(app, rutasprotegidas) {
             }
         });
     });
+    app.delete('/eliminarclientes', rutasprotegidas, (req, res) => {
+        model.eliminarCliente(req.body.cliente, (err, data) => {
+            if (err) {
+                res.status(500).send({
+                    success: false,
+                    mensaje: 'Error al eliminar cliente:' + err
+                });
+            } else {
+                res.json({
+                    success: true,
+                    respuesta: data,
+                    mensaje: "consulta con exito"
+
+                })
+
+            }
+        });
+    });
 }
