@@ -11,7 +11,7 @@ userModel.insertCliente = (data, callback) => {
             //throw err;
         } else {
 
-            console.log("1 record inserted " + result);
+            console.log("1 record inserted " + result.message);
             callback(null, result.message);
         }
 
