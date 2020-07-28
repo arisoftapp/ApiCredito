@@ -17,7 +17,7 @@ module.exports = function(app, rutasprotegidas) {
             } else {
                 res.json({
                     success: true,
-                    respuesta: data,
+                    respuesta: "Se inserto " + req.body.nombre,
                     mensaje: "consulta con exito"
 
                 })
