@@ -63,4 +63,18 @@ userModel.eliminartodoclientes = (cliente, callback) => {
 
     });
 }
+userModel.modificarcliente = (datos, callback) => {
+    var sql = "UPDATE clientes SET puesto='" + datos.puesto + "' ,comentarios='" + datos.comentario + "'where nom_cliente='" + datos.cliente + "'   ";
+    con.query(sql, function(err, result) {
+        if (err) {
+            callback(err, null);
+            //throw err;
+        } else {
+
+            console.log("1 record delete " + result);
+            callback(null, result);
+        }
+
+    });
+}
 module.exports = userModel;
