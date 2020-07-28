@@ -36,7 +36,7 @@ userModel.getClientes = (callback) => {
 
 };
 userModel.eliminarCliente = (cliente, callback) => {
-    var sql = "DELETE FROM  clientes where cliente='" + cliente + "'";
+    var sql = "DELETE FROM  clientes where nom_cliente='" + cliente + "'";
     con.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
