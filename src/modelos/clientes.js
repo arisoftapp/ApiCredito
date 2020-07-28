@@ -19,8 +19,7 @@ userModel.insertCliente = (data, callback) => {
 
 
 };
-userModel.getClientes = (data, callback) => {
-    console.log(data.nombre);
+userModel.getClientes = (callback) => {
     var sql = "SELECT * FROM clientes";
     con.query(sql, function(err, result) {
         if (err) {
