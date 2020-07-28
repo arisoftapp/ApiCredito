@@ -3,6 +3,7 @@ var con = require('../conexion_db');
 let userModel = {};
 
 userModel.insertCliente = (data, callback) => {
+    console.log(data);
     con.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
