@@ -27,7 +27,7 @@ module.exports = function(app, rutasprotegidas) {
     });
     app.get('/clientes', rutasprotegidas, (req, res) => {
 
-        model.getClientes(datos, (err, data) => {
+        model.getClientes((err, data) => {
             if (err) {
                 res.status(500).send({
                     success: false,
