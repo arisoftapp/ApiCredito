@@ -44,7 +44,7 @@ module.exports = function(app, rutasprotegidas) {
             }
         });
     });
-    app.delete('/eliminarclientes', rutasprotegidas, (req, res) => {
+    app.delete('/eliminarcliente', rutasprotegidas, (req, res) => {
         model.eliminarCliente(req.body.cliente, (err, data) => {
             if (err) {
                 res.status(500).send({
