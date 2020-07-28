@@ -19,4 +19,21 @@ userModel.insertCliente = (data, callback) => {
 
 
 };
+userModel.getClientes = (data, callback) => {
+    console.log(data.nombre);
+    var sql = "SELECT * FROM clientes";
+    con.query(sql, function(err, result) {
+        if (err) {
+            callback(err, null);
+            //throw err;
+        } else {
+
+            console.log("1 record inserted " + result);
+            callback(null, result);
+        }
+
+    });
+
+
+};
 module.exports = userModel;
