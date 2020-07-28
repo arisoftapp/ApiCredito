@@ -9,9 +9,15 @@ userModel.insertCliente = (data, callback) => {
         console.log("Connected!");
         var sql = "INSERT INTO clientes (nom_cliente, puesto, comentarios) VALUES ('" + data.nombre + "', '" + data.puesto + "','" + data.comentario + "')";
         con.query(sql, function(err, result) {
-            if (err) throw err;
-            callback(null, result.message);
-            console.log("1 record inserted");
+            if (err) {
+                callback(err, null);
+                //throw err;
+            } else {
+
+                console.log("1 record inserted " + result);
+                callback(null, result.message);
+            }
+
         });
     });
 
