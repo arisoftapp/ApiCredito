@@ -7,7 +7,7 @@ userModel.insertCliente = (data, callback) => {
     con.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
-        var sql = "INSERT INTO clientes (nom_cliente, puesto, comentarios) VALUES (" + data.nombre + ", " + data.puesto + "," + data.comentario + ")";
+        var sql = "INSERT INTO clientes (nom_cliente, puesto, comentarios) VALUES ('" + data.nombre + "', '" + data.puesto + "','" + data.comentario + "')";
         con.query(sql, function(err, result) {
             if (err) throw err;
             callback(null, result.message);
