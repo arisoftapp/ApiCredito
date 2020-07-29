@@ -21,6 +21,7 @@ userModel.getValidarUsuario = (callback) => {
 
 };
 userModel.auth = (usuario, callback) => {
+
     if (dbAdmin) {
         dbAdmin.query(`SELECT 
         *

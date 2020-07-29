@@ -24,6 +24,7 @@ module.exports = function(app, rutasprotegidas) {
     app.post('/login', (req, res) => {
         var usuario = req.body.usuario;
         var contra = req.body.contra;
+        console.log(req.body.usuario);
         user.auth(usuario, (err, data) => {
             if (err) {
                 res.status(500).send({
