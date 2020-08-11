@@ -52,7 +52,7 @@ module.exports = function(app, rutasprotegidas) {
                                 mensaje: "contraseña incorrecta"
                             });
                         } else {
-                            user.updateSesion(datos, (err, data) => {
+                            user.updateSesion((err, dataUpdate) => {
                                 if (err) {
                                     res.status(500).send({
                                         success: false,
@@ -68,7 +68,8 @@ module.exports = function(app, rutasprotegidas) {
                                     res.json({
                                         success: true,
                                         usuario: data,
-                                        token: token
+                                        token: token,
+                                        info: dataUpdate
                                     });
                                 }
                             })

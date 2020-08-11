@@ -38,8 +38,8 @@ userModel.auth = (usuario, callback) => {
 
 
 };
-userModel.updateSesion = (datos, callback) => {
-    var sql = "UPDATE usuarios SET sesion='" + datos.sesion + "' ";
+userModel.updateSesion = (callback) => {
+    var sql = "UPDATE usuarios SET sesion=1 ";
     con.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
