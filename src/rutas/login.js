@@ -20,7 +20,25 @@ module.exports = function(app, rutasprotegidas) {
             }
         });
     });
+    app.get('/usuario/:usu', (req, res) => {
+        var usu = req.usu;
+        user.getUsuario(usu, (err, data) => {
+            if (err) {
+                res.status(500).send({
+                    success: false,
+                    mensaje: 'Error al validar usuario:' + err
+                });
+            } else {
+                res.json({
+                    success: true,
+                    respuesta: data,
+                    mensaje: "consulta con exito"
 
+                })
+
+            }
+        });
+    });
     app.post('/login', (req, res) => {
         var usuario = req.body.usuario;
         var contra = req.body.contra;

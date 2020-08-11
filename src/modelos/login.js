@@ -52,7 +52,24 @@ userModel.updateSesion = (callback) => {
 
     });
 };
+userModel.getUsuario = (usuario, callback) => {
 
+    if (dbAdmin) {
+        dbAdmin.query(`SELECT 
+        *
+        FROM 
+            usuarios
+        WHERE nom_usuario='` + usuario + `' `, (err, rows) => {
+            if (err) {
+                throw err;
+            } else {
+                callback(null, rows);
+            }
+        });
+    }
+
+
+};
 
 
 module.exports = userModel;
