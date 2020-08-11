@@ -21,7 +21,7 @@ module.exports = function(app, rutasprotegidas) {
         });
     });
     app.get('/usuario/:usu', (req, res) => {
-        var usu = req.params.id;
+        var usu = req.params.usu;
         user.getUsuario(usu, (err, data) => {
             if (err) {
                 res.status(500).send({
