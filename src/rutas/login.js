@@ -33,32 +33,39 @@ module.exports = function(app, rutasprotegidas) {
                 });
             } else {
                 console.log(data[0].sesion);
-                if (data.length < 1) {
+                if (data[0].sesion == 0) {
                     res.json({
                         success: false,
-                        mensaje: "usuario incorrecto"
+                        mensaje: "usuario ya inicio sesion"
                     });
                 } else {
-                    if (data[0].contra != contra) {
-
+                    if (data.length < 1) {
                         res.json({
                             success: false,
-                            mensaje: "contraseña incorrecta"
+                            mensaje: "usuario incorrecto"
                         });
                     } else {
-                        const payload = {
-                            check: true
-                        };
-                        const token = jwt.sign(payload, app.get('llave'), {
+                        if (data[0].contra != contra) {
 
-                        });
-                        res.json({
-                            success: true,
-                            usuario: data,
-                            token: token
-                        });
+                            res.json({
+                                success: false,
+                                mensaje: "contraseña incorrecta"
+                            });
+                        } else {
+                            const payload = {
+                                check: true
+                            };
+                            const token = jwt.sign(payload, app.get('llave'), {
+
+                            });
+                            res.json({
+                                success: true,
+                                usuario: data,
+                                token: token
+                            });
+                        }
+
                     }
-
                 }
 
             }
