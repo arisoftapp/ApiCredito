@@ -21,8 +21,7 @@ module.exports = function(app, rutasprotegidas) {
         });
     });
     app.get('/usuario/:usu', (req, res) => {
-        var usu = req.usu;
-        console.log(usu);
+        var usu = req.params.id;
         user.getUsuario(usu, (err, data) => {
             if (err) {
                 res.status(500).send({
@@ -30,13 +29,19 @@ module.exports = function(app, rutasprotegidas) {
                     mensaje: 'Error al validar usuario:' + err
                 });
             } else {
-                res.json({
-                    success: true,
-                    respuesta: data,
-                    mensaje: "consulta con exito"
+                if (data.length < 1) {
+                    res.json({
+                        success: false,
+                        mensaje: "usuario incorrecto"
+                    });
+                } else {
+                    res.json({
+                        success: true,
+                        respuesta: data,
+                        mensaje: "consulta con exito"
 
-                })
-
+                    })
+                }
             }
         });
     });
