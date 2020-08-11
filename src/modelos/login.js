@@ -53,6 +53,7 @@ userModel.updateSesion = (callback) => {
     });
 };
 userModel.getUsuario = (usuario, callback) => {
+    console.log("model" + usuario)
 
     if (dbAdmin) {
         dbAdmin.query(`SELECT 
