@@ -32,6 +32,7 @@ module.exports = function(app, rutasprotegidas) {
                     message: 'Error al comprobar usuario:' + err
                 });
             } else {
+                console.log(data[0].sesion);
                 if (data.length < 1) {
                     res.json({
                         success: false,
