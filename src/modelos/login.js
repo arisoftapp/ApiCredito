@@ -40,7 +40,7 @@ userModel.auth = (usuario, callback) => {
 };
 userModel.updateSesion = (callback) => {
     var sql = "UPDATE usuarios SET sesion=1 ";
-    con.query(sql, function(err, result) {
+    dbAdmin.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
             //throw err;
