@@ -56,24 +56,23 @@ module.exports = function(app, rutasprotegidas) {
                     message: 'Error al comprobar usuario:' + err
                 });
             } else {
-                console.log(data[0].sesion);
-                if (data[0].sesion == 1) {
+                if (data.length < 1) {
                     res.json({
                         success: false,
-                        mensaje: "usuario ya inicio sesion"
+                        mensaje: "usuario incorrecto"
                     });
                 } else {
-                    if (data.length < 1) {
+                    if (data[0].contra != contra) {
+
                         res.json({
                             success: false,
-                            mensaje: "usuario incorrecto"
+                            mensaje: "contraseña incorrecta"
                         });
                     } else {
-                        if (data[0].contra != contra) {
-
+                        if (data[0].sesion == 1) {
                             res.json({
                                 success: false,
-                                mensaje: "contraseña incorrecta"
+                                mensaje: "usuario ya inicio sesion"
                             });
                         } else {
                             user.updateSesion((err, dataUpdate) => {
@@ -97,12 +96,9 @@ module.exports = function(app, rutasprotegidas) {
                                     });
                                 }
                             })
-
                         }
-
                     }
                 }
-
             }
         });
     });
