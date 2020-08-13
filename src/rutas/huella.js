@@ -5,7 +5,7 @@ module.exports = function(app, rutasprotegidas) {
     app.post('/insertarHuella', (req, res) => {
         var datos = {
             "idcliente": req.body.nombre,
-            "huella": req.body.puesto
+            "huella": req.body.huella
         }
         model.insertCliente(datos, (err, data) => {
             if (err) {
