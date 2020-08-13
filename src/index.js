@@ -35,6 +35,8 @@ app.get('/prueba', rutasProtegidas, (req, res) => {
 })
 require('./rutas/login')(app, rutasProtegidas);
 require('./rutas/clientes')(app, rutasProtegidas);
+require('./rutas/huella')(app, rutasProtegidas);
+
 app.listen(port, () => {
     console.log("apirest " + port);
 })
