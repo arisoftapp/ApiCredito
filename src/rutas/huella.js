@@ -4,7 +4,7 @@ module.exports = function(app, rutasprotegidas) {
 
     app.post('/insertarHuella', (req, res) => {
         var datos = {
-            "idcliente": req.body.nombre,
+            "idcliente": req.body.idcliente,
             "huella": req.body.huella
         }
         model.insertCliente(datos, (err, data) => {
@@ -16,7 +16,7 @@ module.exports = function(app, rutasprotegidas) {
             } else {
                 res.json({
                     success: true,
-                    respuesta: "Se inserto " + req.body.nombre,
+                    respuesta: "Se inserto " + req.body.idcliente,
                     mensaje: "consulta con exito"
 
                 })
