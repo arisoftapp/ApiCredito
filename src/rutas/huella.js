@@ -1,4 +1,4 @@
-const model = require('../modelos/clientes');
+const model = require('../modelos/huella');
 const jwt = require('jsonwebtoken');
 module.exports = function(app, rutasprotegidas) {
 
