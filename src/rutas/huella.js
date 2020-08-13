@@ -7,7 +7,7 @@ module.exports = function(app, rutasprotegidas) {
             "idcliente": req.body.idcliente,
             "huella": req.body.huella
         }
-        model.insertCliente(datos, (err, data) => {
+        model.insertHuella(datos, (err, data) => {
             if (err) {
                 res.status(500).send({
                     success: false,
