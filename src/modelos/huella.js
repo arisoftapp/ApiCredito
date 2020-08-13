@@ -4,7 +4,7 @@ let userModel = {};
 
 userModel.insertHuella = (data, callback) => {
     console.log(data.idcliente);
-    var sql = "INSERT INTO huellas (idcliente, huella) VALUES ('" + data.id + "', '" + data.huella + "')";
+    var sql = "INSERT INTO huellas (idcliente, huella) VALUES ('" + data.idcliente + "', '" + data.huella + "')";
     con.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
