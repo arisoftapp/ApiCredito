@@ -26,8 +26,7 @@ module.exports = function(app, rutasprotegidas) {
     });
 
     app.get('/getHuella/:idcliente', (req, res) => {
-        var idcliente = req.params.idcliente;
-        model.insertHuella(idcliente, (err, data) => {
+        model.getHuella(req.params.idcliente, (err, data) => {
             if (err) {
                 res.status(500).send({
                     success: false,
