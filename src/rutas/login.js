@@ -92,7 +92,8 @@ module.exports = function(app, rutasprotegidas) {
                                         success: true,
                                         usuario: data,
                                         token: token,
-                                        info: dataUpdate
+                                        info: dataUpdate,
+                                        mensaje: "Bienvenido"
                                     });
                                 }
                             })

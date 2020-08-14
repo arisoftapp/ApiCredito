@@ -25,6 +25,7 @@ rutasProtegidas.use((req, res, next) => {
         });
     } else {
         res.send({
+            success: true,
             mensaje: 'Token no proveída.'
         });
     }
