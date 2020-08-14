@@ -35,6 +35,22 @@ userModel.getClientes = (callback) => {
 
 
 };
+userModel.getCliente = (codigoMacro, callback) => {
+    var sql = "SELECT * FROM clientes where codigoMacro='" + codigoMacro + "' ";
+    con.query(sql, function(err, result) {
+        if (err) {
+            callback(err, null);
+            //throw err;
+        } else {
+
+            console.log("consulta " + result);
+            callback(null, result);
+        }
+
+    });
+
+
+};
 userModel.eliminarCliente = (cliente, callback) => {
     var sql = "DELETE FROM  clientes where nom_cliente='" + cliente + "'";
     con.query(sql, function(err, result) {
@@ -64,7 +80,7 @@ userModel.eliminartodoclientes = (cliente, callback) => {
     });
 }
 userModel.modificarcliente = (datos, callback) => {
-    var sql = "UPDATE clientes SET puesto='" + datos.puesto + "' ,comentarios='" + datos.comentario + "'where nom_cliente='" + datos.cliente + "'   ";
+    var sql = "UPDATE clientes SET nombre='" + datos.nombre + "' ,a_paterno='" + datos.a_paterno + "' ,a_materno='" + datos.a_materno + "' , puesto='" + datos.puesto + "' ,comentarios='" + datos.comentarios + "'where codigoMacro='" + datos.codigoMacro + "'   ";
     con.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
