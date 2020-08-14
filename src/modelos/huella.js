@@ -20,4 +20,21 @@ userModel.insertHuella = (data, callback) => {
 
 };
 
+userModel.getHuella = (idCliente, callback) => {
+    //console.log(data.idcliente);
+    var sql = "SELECT * huellas where idcliente='" + idCliente + "'";
+    con.query(sql, function(err, result) {
+        if (err) {
+            callback(err, null);
+            //throw err;
+        } else {
+
+            console.log("1 record inserted " + result.message);
+            callback(null, result.message);
+        }
+
+    });
+
+
+};
 module.exports = userModel;
