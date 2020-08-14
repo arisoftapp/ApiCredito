@@ -30,7 +30,7 @@ userModel.getHuella = (idCliente, callback) => {
         } else {
 
             console.log("1 record inserted " + result.message);
-            callback(null, result.message);
+            callback(null, result);
         }
 
     });
