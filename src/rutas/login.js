@@ -92,6 +92,7 @@ module.exports = function(app, rutasprotegidas) {
                                         success: true,
                                         usuario: data,
                                         token: token,
+                                        ruta: data[0].ruta,
                                         info: dataUpdate,
                                         mensaje: "Bienvenido"
                                     });
