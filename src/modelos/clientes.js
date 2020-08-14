@@ -3,16 +3,16 @@ var con = require('../conexion_db');
 let userModel = {};
 
 userModel.insertCliente = (data, callback) => {
-    console.log(data.nombre);
-    var sql = "INSERT INTO clientes (nom_cliente, puesto, comentarios) VALUES ('" + data.nombre + "', '" + data.puesto + "','" + data.comentario + "')";
+    //console.log(data.nombre);
+    var sql = "INSERT INTO clientes (codigoMacro, nombre, a_paterno,a_materno,puesto,comentarios) VALUES ('" + data.codigoMacro + "', '" + data.nombre + "', '" + data.a_paterno + "', '" + data.a_materno + "', '" + data.puesto + "','" + data.comentarios + "')";
     con.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
             //throw err;
         } else {
 
-            console.log("1 record inserted " + result.message);
-            callback(null, result.message);
+            console.log("1 record inserted " + result);
+            callback(null, result);
         }
 
     });
