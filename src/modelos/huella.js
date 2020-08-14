@@ -22,7 +22,7 @@ userModel.insertHuella = (data, callback) => {
 
 userModel.getHuella = (idCliente, callback) => {
     //console.log(data.idcliente);
-    var sql = "SELECT * huellas where idcliente='" + idCliente + "'";
+    var sql = "SELECT * FROM huellas where idcliente='" + idCliente + "'";
     con.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
