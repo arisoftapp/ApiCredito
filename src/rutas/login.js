@@ -117,7 +117,7 @@ module.exports = function(app, rutasprotegidas) {
                 res.json({
                     success: true,
                     info: dataUpdate,
-                    mensaje: "Bienvenido"
+                    mensaje: "Sesion Cerrada"
                 });
             }
         })
