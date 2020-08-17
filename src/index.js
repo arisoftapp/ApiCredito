@@ -2,12 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 config = require('./config')
-const cors = require('cors');
+
 
 const app = express();
 
 const port = process.env.PORT || 3100;
-app.use(cors({ credentials: true, origin: true }))
+
 app.set('llave', config.llave);
 
 app.use(bodyParser.urlencoded({ extended: false }))
