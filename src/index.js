@@ -4,7 +4,10 @@ const jwt = require('jsonwebtoken');
 config = require('./config')
 
 
-const app = express();
+const app = http.createServer(function(request, response) {
+    console.log(`Petición a la URL -> ${request.url}`);
+    request.end();
+});
 
 const port = process.env.PORT || 3100;
 
