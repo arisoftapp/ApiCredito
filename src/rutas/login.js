@@ -75,7 +75,7 @@ module.exports = function(app, rutasprotegidas) {
                                 mensaje: "usuario ya inicio sesion"
                             });
                         } else {
-                            user.updateSesion((err, dataUpdate) => {
+                            user.updateSesion(1, (err, dataUpdate) => {
                                 if (err) {
                                     res.status(500).send({
                                         success: false,
@@ -103,6 +103,24 @@ module.exports = function(app, rutasprotegidas) {
                 }
             }
         });
+    });
+    app.get('/logout', (req, res) => {
+        var usu = req.params.usu;
+        user.updateSesion(0, (err, dataUpdate) => {
+            if (err) {
+                res.status(500).send({
+                    success: false,
+                    message: 'Error al cerrar sesion:' + err
+                });
+            } else {
+
+                res.json({
+                    success: true,
+                    info: dataUpdate,
+                    mensaje: "Bienvenido"
+                });
+            }
+        })
     });
 
 }
