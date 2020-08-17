@@ -51,7 +51,7 @@ module.exports = function(app, rutasprotegidas) {
             } else {
                 if (data.length < 1) {
                     res.json({
-                        success: true,
+                        success: false,
                         respuesta: data,
                         mensaje: "No encontro cliente"
 
