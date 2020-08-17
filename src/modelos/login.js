@@ -38,8 +38,8 @@ userModel.auth = (usuario, callback) => {
 
 
 };
-userModel.updateSesion = (sesion, callback) => {
-    var sql = "UPDATE usuarios SET sesion=" + sesion;
+userModel.updateSesion = (sesion, usuario, callback) => {
+    var sql = "UPDATE usuarios SET sesion=" + sesion + "where nom_usuario='" + usuario + "'";
     dbAdmin.query(sql, function(err, result) {
         if (err) {
             callback(err, null);
