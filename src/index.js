@@ -19,7 +19,7 @@ rutasProtegidas.use((req, res, next) => {
     if (token) {
         jwt.verify(token, app.get('llave'), (err, decoded) => {
             if (err) {
-                return res.json({ mensaje: 'Token inválida' });
+                return res.json({ mensaje: 'Falló la autenticación del token.' });
             } else {
                 req.decoded = decoded;
                 next();
@@ -39,7 +39,7 @@ app.get('/prueba', rutasProtegidas, (req, res) => {
 require('./rutas/login')(app, rutasProtegidas);
 require('./rutas/clientes')(app, rutasProtegidas);
 require('./rutas/huella')(app, rutasProtegidas);
-
+require('./rutas/autorizados')(app, rutasProtegidas);
 app.listen(port, () => {
     console.log("apirest " + port);
 })
