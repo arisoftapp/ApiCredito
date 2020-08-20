@@ -4,6 +4,8 @@ module.exports = function(app, rutasprotegidas) {
 
     app.post('/insertarAutorizado', rutasprotegidas, (req, res) => {
         console.log(req.body);
+        var autorizado = req.body.autorizado;
+        console.log(autorizado);
         /*
                 model.insertCliente(req.body, (err, data) => {
                     if (err) {
