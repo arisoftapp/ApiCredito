@@ -24,10 +24,10 @@ userModel.auth = (usuario, callback) => {
 
     if (dbAdmin) {
         dbAdmin.query(`SELECT 
-        *
+        nom_usuario,contra,ruta,sesion,nombre_empresa,idempresa
         FROM 
-            usuarios
-        WHERE nom_usuario='` + usuario + `' `, (err, rows) => {
+            usuarios,empresa
+        WHERE ((usuarios.nom_usuario='` + usuario + `') AND empresa.idempresa=usuarios.id_empresa ) `, (err, rows) => {
             if (err) {
                 throw err;
             } else {

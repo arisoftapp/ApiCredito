@@ -75,7 +75,13 @@ module.exports = function(app, rutasprotegidas) {
                                 mensaje: "usuario ya inicio sesion"
                             });
                         } else {
-                            user.updateSesion(1, usuario, (err, dataUpdate) => {
+                            var ses=1;
+                            var usuaux=usuario.toUpperCase();
+                            if(usuaux=="ADMIN")
+                            {
+                                ses=0;
+                            }
+                            user.updateSesion(ses, usuario, (err, dataUpdate) => {
                                 if (err) {
                                     res.status(500).send({
                                         success: false,
@@ -94,6 +100,8 @@ module.exports = function(app, rutasprotegidas) {
                                         token: token,
                                         ruta: data[0].ruta,
                                         info: dataUpdate,
+                                        empresa:data[0].nombre_empresa,
+                                        id_empresa:data[0].idempresa,
                                         mensaje: "Bienvenido"
                                     });
                                 }
